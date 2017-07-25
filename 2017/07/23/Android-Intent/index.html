@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>Android_Intent | LWJ</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="ComponentName (组件名称) Action  字符串类型1intent.setAction(&amp;quot;com.example.lwj.activitytest&amp;quot;);  Category分类 进一步筛选要选择的内容 一般放在标签中 常用的有:LAUNCHER 、DEFAULT、 HOME  Extra 附加信息(键值对)   传值putExtra() 12345if (g">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Android_Intent">
+<meta property="og:url" content="http://yoursite.com/2017/07/23/Android-Intent/index.html">
+<meta property="og:site_name" content="LWJ">
+<meta property="og:description" content="ComponentName (组件名称) Action  字符串类型1intent.setAction(&amp;quot;com.example.lwj.activitytest&amp;quot;);  Category分类 进一步筛选要选择的内容 一般放在标签中 常用的有:LAUNCHER 、DEFAULT、 HOME  Extra 附加信息(键值对)   传值putExtra() 12345if (g">
+<meta property="og:updated_time" content="2017-07-23T14:01:51.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Android_Intent">
+<meta name="twitter:description" content="ComponentName (组件名称) Action  字符串类型1intent.setAction(&amp;quot;com.example.lwj.activitytest&amp;quot;);  Category分类 进一步筛选要选择的内容 一般放在标签中 常用的有:LAUNCHER 、DEFAULT、 HOME  Extra 附加信息(键值对)   传值putExtra() 12345if (g">
+  
+    <link rel="alternate" href="/atom.xml" title="LWJ" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  
+
+</head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">LWJ</a>
+      </h1>
+      
+        <h2 id="subtitle-wrap">
+          <a href="/" id="subtitle">潦水尽而寒潭清， 烟光凝而暮山紫。 俨骖騑于上路， 访风景于崇阿； 临帝子之长洲， 得天人之旧馆。 层峦耸翠， 上出重霄； 飞阁流丹， 下临无地。 鹤汀凫渚， 穷岛屿之萦回； 桂殿兰宫， 即冈峦之体势。</a>
+        </h2>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-Android-Intent" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2017/07/23/Android-Intent/" class="article-date">
+  <time datetime="2017-07-23T13:10:35.000Z" itemprop="datePublished">2017-07-23</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      Android_Intent
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <a id="more"></a>
+<ul>
+<li>ComponentName (组件名称)</li>
+<li>Action</li>
+</ul>
+<p>字符串类型<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">intent.setAction(&quot;com.example.lwj.activitytest&quot;);</div></pre></td></tr></table></figure></p>
+<ul>
+<li><p>Category<br>分类 进一步筛选要选择的内容 一般放在<intent-filter>标签中 常用的有:<br>LAUNCHER 、DEFAULT、 HOME</intent-filter></p>
+</li>
+<li><p>Extra 附加信息(键值对)</p>
+</li>
+</ul>
+<p>传值<br>putExtra()</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">if (getIntent() != null)&#123;</div><div class="line">    Intent intent = getIntent();</div><div class="line">    String info = intent.getStringExtra(&quot;info&quot;);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2017/07/23/Android-Intent/" data-id="cj5iv2buf00003sumtxh33ol7" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2017/07/24/Gradle常用命令/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          Gradle常用命令
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2017/07/23/Android-生命周期/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">Android_生命周期</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Android/">Android</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Apache/">Apache</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Hexo/">Hexo</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Linux/">Linux</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Swift/">Swift</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Travis/">Travis</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/iOS/">iOS</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/shell-Android/">shell,Android</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/Android/" style="font-size: 10px;">Android</a> <a href="/tags/Apache/" style="font-size: 10px;">Apache</a> <a href="/tags/Hexo/" style="font-size: 20px;">Hexo</a> <a href="/tags/Linux/" style="font-size: 10px;">Linux</a> <a href="/tags/Swift/" style="font-size: 10px;">Swift</a> <a href="/tags/Travis/" style="font-size: 10px;">Travis</a> <a href="/tags/iOS/" style="font-size: 10px;">iOS</a> <a href="/tags/shell-Android/" style="font-size: 10px;">shell,Android</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/07/">七月 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/06/">六月 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/05/">五月 2017</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2017/07/25/一些有用的终端命令/">一些有用的终端命令</a>
+          </li>
+        
+          <li>
+            <a href="/2017/07/24/Android-布局/">Android_布局</a>
+          </li>
+        
+          <li>
+            <a href="/2017/07/24/Android-无线调试脚本/">Android_无线调试脚本</a>
+          </li>
+        
+          <li>
+            <a href="/2017/07/24/Gradle常用命令/">Gradle常用命令</a>
+          </li>
+        
+          <li>
+            <a href="/2017/07/23/Android-Intent/">Android_Intent</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2017 LWJ_wen<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+  </div>
+</body>
+</html>

@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>Travis_CI动态编译GitHub仓库 | LWJ</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="我的博客是用hexo部署在GitHub上的有时候换个电脑或是有个小改动的话 就会很不方便 Travis刚好解决了这个问题">
+<meta name="keywords" content="Travis,Hexo">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Travis_CI动态编译GitHub仓库">
+<meta property="og:url" content="http://yoursite.com/2017/07/06/Travis-CI动态编译GitHub仓库/index.html">
+<meta property="og:site_name" content="LWJ">
+<meta property="og:description" content="我的博客是用hexo部署在GitHub上的有时候换个电脑或是有个小改动的话 就会很不方便 Travis刚好解决了这个问题">
+<meta property="og:updated_time" content="2017-07-06T06:26:07.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Travis_CI动态编译GitHub仓库">
+<meta name="twitter:description" content="我的博客是用hexo部署在GitHub上的有时候换个电脑或是有个小改动的话 就会很不方便 Travis刚好解决了这个问题">
+  
+    <link rel="alternate" href="/atom.xml" title="LWJ" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  
+
+</head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">LWJ</a>
+      </h1>
+      
+        <h2 id="subtitle-wrap">
+          <a href="/" id="subtitle">潦水尽而寒潭清， 烟光凝而暮山紫。 俨骖騑于上路， 访风景于崇阿； 临帝子之长洲， 得天人之旧馆。 层峦耸翠， 上出重霄； 飞阁流丹， 下临无地。 鹤汀凫渚， 穷岛屿之萦回； 桂殿兰宫， 即冈峦之体势。</a>
+        </h2>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-Travis-CI动态编译GitHub仓库" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2017/07/06/Travis-CI动态编译GitHub仓库/" class="article-date">
+  <time datetime="2017-07-06T05:24:00.000Z" itemprop="datePublished">2017-07-06</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      Travis_CI动态编译GitHub仓库
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>我的博客是用hexo部署在GitHub上的有时候换个电脑或是有个小改动的话 就会很不方便 Travis刚好解决了这个问题</p>
+<a id="more"></a>
+<ul>
+<li><p>什么是Travis_CI</p>
+<p><em>Travis CI 是目前新兴的开源持续集成构建项目，它与jenkins，Go的很明显的 特别在于采用yaml格式，同时他是在在线的服务，不像jenkins需要你本地打架服务器，简洁清新独树一帜。目前大多数的github项目都已经移入到Travis CI的构建队列中，据说Travis CI每天运行超过4000次完整构建。</em></p>
+</li>
+<li><p>GitHub账号登录Travis_CI 在左上角有加好按钮 把需要添加的项目开关打开</p>
+</li>
+<li><p>github上添加access token</p>
+<p>登录github，进入到setting =&gt; develop setting =&gt; personal access tokens<br>在description里输入任意token 名字，比如Travis-CI，并勾选上下面所有复选框。这个时候会生成token，请务必记住，因为他只会出现一次，否则需要重新生成(这个就是)。</p>
+</li>
+<li><p>添加access token到travis上</p>
+<p>在travis右上角more options里找到setting，打开后，勾选 [Build only if .travis.yml is present] 并且 在Environment Variables中添加github上的access token。</p>
+</li>
+<li><p>添加编写.travis.yml</p>
+<p><em>在项目源码根目录(我的是troy-yang.github.io source分支), 添加.travis.yml文件，下面是我的:</em></p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div></pre></td><td class="code"><pre><div class="line">language: node_js</div><div class="line">node_js: stable</div><div class="line"># S: Build Lifecycle</div><div class="line">install:</div><div class="line">- npm install hexo-cli -g</div><div class="line">- npm install</div><div class="line">before_install:</div><div class="line">- git submodule update --init --remote --recursive</div><div class="line">#before_script:</div><div class="line"># - npm install -g gulp</div><div class="line">script:</div><div class="line">- hexo g</div><div class="line">after_script:</div><div class="line">- cd ./public</div><div class="line">- git init</div><div class="line">- git config user.name "laodaoduo"</div><div class="line">- git config user.email "2295990355@qq.com"</div><div class="line">- git add .</div><div class="line">- git commit -m "Update docs"</div><div class="line">- git push --force --quiet "https://$&#123;GitHub_TOKEN&#125;@$&#123;GH_REF&#125;" master:master</div><div class="line"># E: Build LifeCycle</div><div class="line">env:</div><div class="line">global:</div><div class="line">- GH_REF: github.com/laodaoduo/laodaoduo.github.io.git</div></pre></td></tr></table></figure>
+</li>
+<li><p>最后可以测试看看了 参考<a href="http://troyyang.com/2017/06/24/Travis_Auto_Build_Deploy_Github_Projects/" target="_blank" rel="external">链接</a></p>
+</li>
+</ul>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2017/07/06/Travis-CI动态编译GitHub仓库/" data-id="cj5iv2buv00093sumk9vnzaqa" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Hexo/">Hexo</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Travis/">Travis</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2017/07/19/Vim的基本使用/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          Vim的基本使用
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2017/07/06/Mac下的Apache服务/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">Mac下的Apache服务</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Android/">Android</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Apache/">Apache</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Hexo/">Hexo</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Linux/">Linux</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Swift/">Swift</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Travis/">Travis</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/iOS/">iOS</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/shell-Android/">shell,Android</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/Android/" style="font-size: 10px;">Android</a> <a href="/tags/Apache/" style="font-size: 10px;">Apache</a> <a href="/tags/Hexo/" style="font-size: 20px;">Hexo</a> <a href="/tags/Linux/" style="font-size: 10px;">Linux</a> <a href="/tags/Swift/" style="font-size: 10px;">Swift</a> <a href="/tags/Travis/" style="font-size: 10px;">Travis</a> <a href="/tags/iOS/" style="font-size: 10px;">iOS</a> <a href="/tags/shell-Android/" style="font-size: 10px;">shell,Android</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/07/">七月 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/06/">六月 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/05/">五月 2017</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2017/07/25/一些有用的终端命令/">一些有用的终端命令</a>
+          </li>
+        
+          <li>
+            <a href="/2017/07/24/Android-布局/">Android_布局</a>
+          </li>
+        
+          <li>
+            <a href="/2017/07/24/Android-无线调试脚本/">Android_无线调试脚本</a>
+          </li>
+        
+          <li>
+            <a href="/2017/07/24/Gradle常用命令/">Gradle常用命令</a>
+          </li>
+        
+          <li>
+            <a href="/2017/07/23/Android-Intent/">Android_Intent</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2017 LWJ_wen<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+  </div>
+</body>
+</html>

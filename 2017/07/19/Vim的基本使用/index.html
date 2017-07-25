@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>Vim的基本使用 | LWJ</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="vi编辑器是所有Unix及Linux系统下标准的编辑器，它的强大不逊色于任何最新的文本编辑器，这里只是简单地介绍一下它的用法和一小部分指令。由于对Unix及Linux系统的任何版本，vi编辑器是完全相同的，因此您可以在其他任何介绍vi的地方进一步了解它。Vi也是Linux中最基本的文本编辑器，学会它后，您将在Linux的世界里畅行无阻。">
+<meta name="keywords" content="Linux">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Vim的基本使用">
+<meta property="og:url" content="http://yoursite.com/2017/07/19/Vim的基本使用/index.html">
+<meta property="og:site_name" content="LWJ">
+<meta property="og:description" content="vi编辑器是所有Unix及Linux系统下标准的编辑器，它的强大不逊色于任何最新的文本编辑器，这里只是简单地介绍一下它的用法和一小部分指令。由于对Unix及Linux系统的任何版本，vi编辑器是完全相同的，因此您可以在其他任何介绍vi的地方进一步了解它。Vi也是Linux中最基本的文本编辑器，学会它后，您将在Linux的世界里畅行无阻。">
+<meta property="og:updated_time" content="2017-07-19T09:33:34.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Vim的基本使用">
+<meta name="twitter:description" content="vi编辑器是所有Unix及Linux系统下标准的编辑器，它的强大不逊色于任何最新的文本编辑器，这里只是简单地介绍一下它的用法和一小部分指令。由于对Unix及Linux系统的任何版本，vi编辑器是完全相同的，因此您可以在其他任何介绍vi的地方进一步了解它。Vi也是Linux中最基本的文本编辑器，学会它后，您将在Linux的世界里畅行无阻。">
+  
+    <link rel="alternate" href="/atom.xml" title="LWJ" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  
+
+</head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">LWJ</a>
+      </h1>
+      
+        <h2 id="subtitle-wrap">
+          <a href="/" id="subtitle">潦水尽而寒潭清， 烟光凝而暮山紫。 俨骖騑于上路， 访风景于崇阿； 临帝子之长洲， 得天人之旧馆。 层峦耸翠， 上出重霄； 飞阁流丹， 下临无地。 鹤汀凫渚， 穷岛屿之萦回； 桂殿兰宫， 即冈峦之体势。</a>
+        </h2>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-Vim的基本使用" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2017/07/19/Vim的基本使用/" class="article-date">
+  <time datetime="2017-07-19T07:18:05.000Z" itemprop="datePublished">2017-07-19</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      Vim的基本使用
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>vi编辑器是所有Unix及Linux系统下标准的编辑器，它的强大不逊色于任何最新的文本编辑器，这里只是简单地介绍一下它的用法和一小部分指令。由于对Unix及Linux系统的任何版本，vi编辑器是完全相同的，因此您可以在其他任何介绍vi的地方进一步了解它。Vi也是Linux中最基本的文本编辑器，学会它后，您将在Linux的世界里畅行无阻。</p>
+<a id="more"></a>
+<p>1、vi的基本概念<br>基本上vi可以分为三种状态，分别是命令模式（command mode）、插入模式（Insert mode）和底行模式（last line mode），各模式的功能区分如下：</p>
+<p>1) 命令行模式command mode）</p>
+<p>控制屏幕光标的移动，字符、字或行的删除，移动复制某区段及进入Insert mode下，或者到 last line mode。</p>
+<p>2) 插入模式（Insert mode）</p>
+<p>只有在Insert mode下，才可以做文字输入，按「ESC」键可回到命令行模式。</p>
+<p>3) 底行模式（last line mode）</p>
+<p>将文件保存或退出vi，也可以设置编辑环境，如寻找字符串、列出行号……等。</p>
+<p>不过一般我们在使用时把vi简化成两个模式，就是将底行模式（last line mode）也算入命令行模式command mode）。</p>
+<p>2、vi的基本操作<br>a) 进入vi</p>
+<p>在系统提示符号输入vi及文件名称后，就进入vi全屏幕编辑画面：</p>
+<p>$ vi myfile</p>
+<p>不过有一点要特别注意，就是您进入vi之后，是处于「命令行模式（command mode）」，您要切换到「插入模式（Insert mode）」才能够输入文字。初次使用vi的人都会想先用上下左右键移动光标，结果电脑一直哔哔叫，把自己气个半死，所以进入vi后，先不要乱动，转换到「插入模式（Insert mode）」再说吧！</p>
+<p>b) 切换至插入模式（Insert mode）编辑文件</p>
+<p>在「命令行模式（command mode）」下按一下字母「i」就可以进入「插入模式（Insert mode）」，这时候你就可以开始输入文字了。</p>
+<p>c) Insert 的切换</p>
+<p>您目前处于「插入模式（Insert mode）」，您就只能一直输入文字，如果您发现输错了字！想用光标键往回移动，将该字删除，就要先按一下「ESC」键转到「命令行模式（command mode）」再删除文字。</p>
+<p>d) 退出vi及保存文件</p>
+<p>在「命令行模式（command mode）」下，按一下「：」冒号键进入「Last line mode」，例如：</p>
+<p>: w filename （输入 「w filename」将文章以指定的文件名filename保存）</p>
+<p>: wq (输入「wq」，存盘并退出vi)</p>
+<p>: q! (输入q!， 不存盘强制退出vi)</p>
+<p>3、命令行模式（command mode）功能键<br>1）. 插入模式</p>
+<p>按「i」切换进入插入模式「insert mode」，按“i”进入插入模式后是从光标当前位置开始输入文件；</p>
+<p>按「a」进入插入模式后，是从目前光标所在位置的下一个位置开始输入文字；</p>
+<p>按「o」进入插入模式后，是插入新的一行，从行首开始输入文字。</p>
+<p>2）. 从插入模式切换为命令行模式</p>
+<p>按「ESC」键。</p>
+<p>3）. 移动光标</p>
+<p>vi可以直接用键盘上的光标来上下左右移动，但正规的vi是用小写英文字母「h」、「j」、「k」、「l」，分别控制光标左、下、上、右移一格。</p>
+<p>按「ctrl」+「b」：屏幕往“后”移动一页。</p>
+<p>按「ctrl」+「f」：屏幕往“前”移动一页。</p>
+<p>按「ctrl」+「u」：屏幕往“后”移动半页。</p>
+<p>按「ctrl」+「d」：屏幕往“前”移动半页。</p>
+<p>按数字「0」：移到文章的开头。</p>
+<p>按「G」：移动到文章的最后。</p>
+<p>按「$」：移动到光标所在行的“行尾”。</p>
+<p>按「^」：移动到光标所在行的“行首”</p>
+<p>按「w」：光标跳到下个字的开头</p>
+<p>按「e」：光标跳到下个字的字尾</p>
+<p>按「b」：光标回到上个字的开头</p>
+<p>按「#l」：光标移到该行的第#个位置，如：5l,56l。</p>
+<p>4）. 删除文字</p>
+<p>「x」：每按一次，删除光标所在位置的“后面”一个字符。</p>
+<p>「#x」：例如，「6x」表示删除光标所在位置的“后面”6个字符。</p>
+<p>「X」：大写的X，每按一次，删除光标所在位置的“前面”一个字符。</p>
+<p>「#X」：例如，「20X」表示删除光标所在位置的“前面”20个字符。</p>
+<p>「dd」：删除光标所在行。</p>
+<p>「#dd」：从光标所在行开始删除#行</p>
+<p>5）. 复制</p>
+<p>「yw」：将光标所在之处到字尾的字符复制到缓冲区中。</p>
+<p>「#yw」：复制#个字到缓冲区</p>
+<p>「yy」：复制光标所在行到缓冲区。</p>
+<p>「#yy」：例如，「6yy」表示拷贝从光标所在的该行“往下数”6行文字。</p>
+<p>「p」：将缓冲区内的字符贴到光标所在位置。注意：所有与“y”有关的复制命令都必须与“p”配合才能完成复制与粘贴功能。</p>
+<p>6）. 替换</p>
+<p>「r」：替换光标所在处的字符。</p>
+<p>「R」：替换光标所到之处的字符，直到按下「ESC」键为止。</p>
+<p>7）. 回复上一次操作</p>
+<p>「u」：如果您误执行一个命令，可以马上按下「u」，回到上一个操作。按多次“u”可以执行多次回复。</p>
+<p>8）. 更改</p>
+<p>「cw」：更改光标所在处的字到字尾处</p>
+<p>「c#w」：例如，「c3w」表示更改3个字</p>
+<p>9）. 跳至指定的行</p>
+<p>「ctrl」+「g」列出光标所在行的行号。</p>
+<p>「#G」：例如，「15G」，表示移动光标至文章的第15行行首。</p>
+<p>4、Last line mode下命令简介<br>在使用「last line mode」之前，请记住先按「ESC」键确定您已经处于「command mode」下后，再按「：」冒号即可进入「last line mode」。</p>
+<p>A) 列出行号</p>
+<p>「set nu」：输入「set nu」后，会在文件中的每一行前面列出行号。</p>
+<p>B) 跳到文件中的某一行</p>
+<p>「#」：「#」号表示一个数字，在冒号后输入一个数字，再按回车键就会跳到该行了，如输入数字15，再回车，就会跳到文章的第15行。</p>
+<p>C) 查找字符</p>
+<p>「/关键字」：先按「/」键，再输入您想寻找的字符，如果第一次找的关键字不是您想要的，可以一直按「n」会往后寻找到您要的关键字为止。</p>
+<p>「?关键字」：先按「?」键，再输入您想寻找的字符，如果第一次找的关键字不是您想要的，可以一直按「n」会往前寻找到您要的关键字为止。</p>
+<p>D) 保存文件</p>
+<p>「w」：在冒号输入字母「w」就可以将文件保存起来。</p>
+<p>E) 离开vi</p>
+<p>「q」：按「q」就是退出，如果无法离开vi，可以在「q」后跟一个「!」强制离开vi。</p>
+<p>「qw」：一般建议离开时，搭配「w」一起使用，这样在退出的时候还可以保存文件。</p>
+<p>5、vi命令列表<br>1、下表列出命令模式下的一些键的功能：</p>
+<p>h<br>左移光标一个字符</p>
+<p>l<br>右移光标一个字符</p>
+<p>k<br>光标上移一行</p>
+<p>j<br>光标下移一行</p>
+<p>^<br>光标移动至行首</p>
+<p>0<br>数字“0”，光标移至文章的开头</p>
+<p>G<br>光标移至文章的最后</p>
+<p>$<br>光标移动至行尾</p>
+<p>Ctrl+f<br>向前翻屏</p>
+<p>Ctrl+b<br>向后翻屏</p>
+<p>Ctrl+d<br>向前翻半屏</p>
+<p>Ctrl+u<br>向后翻半屏</p>
+<p>i<br>在光标位置前插入字符</p>
+<p>a<br>在光标所在位置的后一个字符开始增加</p>
+<p>o<br>插入新的一行，从行首开始输入</p>
+<p>ESC<br>从输入状态退至命令状态</p>
+<p>x<br>删除光标后面的字符</p>
+<p>#x<br>删除光标后的＃个字符</p>
+<p>X<br>(大写X)，删除光标前面的字符</p>
+<p>#X<br>删除光标前面的#个字符</p>
+<p>dd<br>删除光标所在的行</p>
+<p>#dd<br>删除从光标所在行数的#行</p>
+<p>yw<br>复制光标所在位置的一个字</p>
+<p>#yw<br>复制光标所在位置的#个字</p>
+<p>yy<br>复制光标所在位置的一行</p>
+<p>#yy<br>复制从光标所在行数的#行</p>
+<p>p<br>粘贴</p>
+<p>u<br>取消操作</p>
+<p>cw<br>更改光标所在位置的一个字</p>
+<p>#cw<br>更改光标所在位置的#个字</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2017/07/19/Vim的基本使用/" data-id="cj5iv2buy000e3sumu857q458" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Linux/">Linux</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2017/07/21/Swift小知识/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          Swift小知识
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2017/07/06/Travis-CI动态编译GitHub仓库/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">Travis_CI动态编译GitHub仓库</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Android/">Android</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Apache/">Apache</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Hexo/">Hexo</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Linux/">Linux</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Swift/">Swift</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Travis/">Travis</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/iOS/">iOS</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/shell-Android/">shell,Android</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/Android/" style="font-size: 10px;">Android</a> <a href="/tags/Apache/" style="font-size: 10px;">Apache</a> <a href="/tags/Hexo/" style="font-size: 20px;">Hexo</a> <a href="/tags/Linux/" style="font-size: 10px;">Linux</a> <a href="/tags/Swift/" style="font-size: 10px;">Swift</a> <a href="/tags/Travis/" style="font-size: 10px;">Travis</a> <a href="/tags/iOS/" style="font-size: 10px;">iOS</a> <a href="/tags/shell-Android/" style="font-size: 10px;">shell,Android</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/07/">七月 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/06/">六月 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/05/">五月 2017</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2017/07/25/一些有用的终端命令/">一些有用的终端命令</a>
+          </li>
+        
+          <li>
+            <a href="/2017/07/24/Android-布局/">Android_布局</a>
+          </li>
+        
+          <li>
+            <a href="/2017/07/24/Android-无线调试脚本/">Android_无线调试脚本</a>
+          </li>
+        
+          <li>
+            <a href="/2017/07/24/Gradle常用命令/">Gradle常用命令</a>
+          </li>
+        
+          <li>
+            <a href="/2017/07/23/Android-Intent/">Android_Intent</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2017 LWJ_wen<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+  </div>
+</body>
+</html>
