@@ -3,19 +3,19 @@
 <head>
   <meta charset="utf-8">
   
-  <title>Android_Intent | LWJ</title>
+  <title>CoreMLtest | LWJ</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="Intent 的几大属性">
-<meta name="keywords" content="Android">
+  <meta name="description" content="iOS 11 机器学习练习">
+<meta name="keywords" content="Swift">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Android_Intent">
-<meta property="og:url" content="http://yoursite.com/2017/07/23/Android-Intent/index.html">
+<meta property="og:title" content="CoreMLtest">
+<meta property="og:url" content="http://yoursite.com/2017/07/26/CoreMLtest/index.html">
 <meta property="og:site_name" content="LWJ">
-<meta property="og:description" content="Intent 的几大属性">
-<meta property="og:updated_time" content="2017-07-26T09:08:56.000Z">
+<meta property="og:description" content="iOS 11 机器学习练习">
+<meta property="og:updated_time" content="2017-07-26T09:09:04.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Android_Intent">
-<meta name="twitter:description" content="Intent 的几大属性">
+<meta name="twitter:title" content="CoreMLtest">
+<meta name="twitter:description" content="iOS 11 机器学习练习">
   
     <link rel="alternate" href="/atom.xml" title="LWJ" type="application/atom+xml">
   
@@ -68,10 +68,10 @@
   </div>
 </header>
       <div class="outer">
-        <section id="main"><article id="post-Android-Intent" class="article article-type-post" itemscope itemprop="blogPost">
+        <section id="main"><article id="post-CoreMLtest" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/2017/07/23/Android-Intent/" class="article-date">
-  <time datetime="2017-07-23T13:10:35.000Z" itemprop="datePublished">2017-07-23</time>
+    <a href="/2017/07/26/CoreMLtest/" class="article-date">
+  <time datetime="2017-07-26T08:53:25.000Z" itemprop="datePublished">2017-07-26</time>
 </a>
     
   </div>
@@ -82,7 +82,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      Android_Intent
+      CoreMLtest
     </h1>
   
 
@@ -90,31 +90,24 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h4 id="Intent-的几大属性"><a href="#Intent-的几大属性" class="headerlink" title="Intent 的几大属性"></a>Intent 的几大属性</h4><a id="more"></a>
-<ul>
-<li>ComponentName (组件名称)</li>
-<li>Action</li>
-</ul>
-<p>字符串类型<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">intent.setAction(&quot;com.example.lwj.activitytest&quot;);</div></pre></td></tr></table></figure></p>
-<ul>
-<li><p>Category<br>分类 进一步筛选要选择的内容 一般放在<intent-filter>标签中 常用的有:<br>LAUNCHER 、DEFAULT、 HOME</intent-filter></p>
-</li>
-<li><p>Extra 附加信息(键值对)</p>
-</li>
-</ul>
-<p>传值<br>putExtra()</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">if (getIntent() != null)&#123;</div><div class="line">    Intent intent = getIntent();</div><div class="line">    String info = intent.getStringExtra(&quot;info&quot;);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<ul>
-<li>Data</li>
-</ul>
+        <p>iOS 11 机器学习练习</p>
+<a id="more"></a>
+<h2 id="iOS-11-机器学习练习"><a href="#iOS-11-机器学习练习" class="headerlink" title="iOS 11 机器学习练习"></a>iOS 11 机器学习练习</h2><!---->
+<!---->
+<h3 id="图片数据"><a href="#图片数据" class="headerlink" title="图片数据"></a>图片数据</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">let imageData = pickImageView.image?.cgImage</div></pre></td></tr></table></figure>
+<h3 id="用到的模型"><a href="#用到的模型" class="headerlink" title="用到的模型"></a>用到的模型</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">let model = try! VNCoreMLModel(for: Resnet50().model)</div></pre></td></tr></table></figure>
+<h3 id="配置请求"><a href="#配置请求" class="headerlink" title="配置请求"></a>配置请求</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">let hander = VNImageRequestHandler(cgImage: imageData!)</div><div class="line">let request = VNCoreMLRequest(model: model, completionHandler: myResultsMethod)</div></pre></td></tr></table></figure>
+<h3 id="执行请求"><a href="#执行请求" class="headerlink" title="执行请求"></a>执行请求</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">try! hander.perform([request])</div></pre></td></tr></table></figure>
+<h3 id="请求的方法-用于model的输入输出"><a href="#请求的方法-用于model的输入输出" class="headerlink" title="请求的方法 用于model的输入输出"></a>请求的方法 用于model的输入输出</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">func myResultsMethod(request: VNRequest, <span class="attr">error</span>: <span class="built_in">Error</span>?) &#123;</div><div class="line">guard <span class="keyword">let</span> results = request.results <span class="keyword">as</span>? [VNClassificationObservation]</div><div class="line"><span class="keyword">else</span> &#123; fatalError(<span class="string">"huh"</span>) &#125;</div><div class="line">lable.text = results[<span class="number">0</span>].identifier</div><div class="line"><span class="keyword">for</span> classification <span class="keyword">in</span> results &#123;</div><div class="line">print(<span class="string">"=====++==="</span> + classification.identifier + <span class="string">"----++----"</span> )</div><div class="line">&#125;</div><div class="line"></div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">platform :ios, &quot;8.0&quot;</div><div class="line">inhibit_all_warnings!</div><div class="line"></div><div class="line">use_frameworks!</div><div class="line">target &apos;RAC_ObjcTest&apos; do</div><div class="line"></div><div class="line">pod &apos;ReactiveObjC&apos;</div><div class="line">pod &apos;XRCarouselView&apos;</div><div class="line"></div><div class="line">end</div></pre></td></tr></table></figure>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/07/23/Android-Intent/" data-id="cj5ksha550001tnumzply8uc5" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2017/07/26/CoreMLtest/" data-id="cj5ksha5d0008tnuma7cejnzq" class="article-share-link">Share</a>
       
       
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Android/">Android</a></li></ul>
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Swift/">Swift</a></li></ul>
 
     </footer>
   </div>
@@ -122,19 +115,19 @@
     
 <nav id="article-nav">
   
-    <a href="/2017/07/24/Gradle常用命令/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2017/07/26/Runloop/" id="article-nav-newer" class="article-nav-link-wrap">
       <strong class="article-nav-caption">Newer</strong>
       <div class="article-nav-title">
         
-          Gradle常用命令
+          Runloop
         
       </div>
     </a>
   
   
-    <a href="/2017/07/23/Android-生命周期/" id="article-nav-older" class="article-nav-link-wrap">
+    <a href="/2017/07/26/AR-Swift/" id="article-nav-older" class="article-nav-link-wrap">
       <strong class="article-nav-caption">Older</strong>
-      <div class="article-nav-title">Android_生命周期</div>
+      <div class="article-nav-title">AR_Swift</div>
     </a>
   
 </nav>
