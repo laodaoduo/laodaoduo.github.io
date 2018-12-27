@@ -99,7 +99,9 @@
 <h4 id="移除默认的ruby源"><a href="#移除默认的ruby源" class="headerlink" title="移除默认的ruby源"></a>移除默认的ruby源</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">gem sources --remove https://rubygems.org/</div></pre></td></tr></table></figure>
 <h4 id="更改为国内源"><a href="#更改为国内源" class="headerlink" title="更改为国内源"></a>更改为国内源</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">gem sources -a https://gems.ruby-china.org/</div></pre></td></tr></table></figure>
 <h4 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sudo gem install cocoapods</div></pre></td></tr></table></figure>
-<p>成功之后执行pod setup<br>测试 pod search AFNetworking<br>报错：Unable to find a pod with name, author, summary, or description matching <code>SDWebImage</code><br>解决办法：rm ~/Library/Caches/CocoaPods/search_index.json<br>再次测试 ok<br>出现上面错误的原因是因为你在没有完全安装好cocoapods的时候执行的search操作</p>
+<p>1、成功之后执行pod setup<br>测试 pod search AFNetworking<br>报错：Unable to find a pod with name, author, summary, or description matching <code>SDWebImage</code><br>解决办法：rm ~/Library/Caches/CocoaPods/search_index.json<br>再次测试 ok<br>出现上面错误的原因是因为你在没有完全安装好cocoapods的时候执行的search操作<br>2、Error fetching https://gems.ruby-china.org/:
+	bad response Not Found 404 (https://gems.ruby-china.org/specs.4.8.gz)<br>实时更新https://gems.ruby-china.org<br>3、ERROR:  While executing gem ... (Gem::FilePermissionError)
+    You don't have write permissions for the /usr/bin directory.<br>sudo gem install -n /usr/local/bin cocoapods</p>
 
       
     </div>
